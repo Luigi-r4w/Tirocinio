@@ -23,7 +23,7 @@ public class UserDAO {
         return rs1;
     }
 
-    public User AutentificazioneVenditore(String email, String pass) throws Exception {
+    public User Autentificazione(String email, String pass) throws Exception {
         Connection con = null;
         String sql = "select * from venditore where email = ? AND password = ?";
         con = dbConnection.getConnection();
