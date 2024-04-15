@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS public."user"
+(
+    name character(30) COLLATE pg_catalog."default" NOT NULL,
+    email character(30) COLLATE pg_catalog."default" NOT NULL,
+    password character(30) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT user_pkey PRIMARY KEY (email)
+)
+
+
+CREATE TABLE IF NOT EXISTS public.hotel
+(
+    name character(30) COLLATE pg_catalog."default" NOT NULL,
+    address character(30) COLLATE pg_catalog."default" NOT NULL,
+    city character(30) COLLATE pg_catalog."default" NOT NULL,
+    link text COLLATE pg_catalog."default",
+    CONSTRAINT hotel_pkey PRIMARY KEY (name, city)
+)
