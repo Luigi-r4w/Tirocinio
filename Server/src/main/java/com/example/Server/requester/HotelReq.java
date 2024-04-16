@@ -12,7 +12,7 @@ import com.example.Server.dto.Hotel;
 public class HotelReq {
     HotelDAO hotel = new HotelDAO();
 
-    @PostMapping("/{city}")
+    @GetMapping("/{city}")
     public ArrayList<Hotel> hotelCity(@PathVariable String city){
         return hotel.HotelCity(city);
     }

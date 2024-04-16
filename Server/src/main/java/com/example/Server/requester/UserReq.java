@@ -10,7 +10,7 @@ import com.example.Server.dto.User;
 public class UserReq {
     UserDAO utente = new UserDAO();
 
-    @PutMapping("/{user}/{pass}")
+    @GetMapping("/{user}/{pass}")
     public Boolean authentication(@PathVariable("user") String user, @PathVariable("pass") String pass) throws Exception {
         return utente.Authentication(user, pass);
     }
