@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.example.Server.dto.Hotel;
 
+
 public class HotelDAO {
 
     public boolean NewHotel(Hotel hotel) {
