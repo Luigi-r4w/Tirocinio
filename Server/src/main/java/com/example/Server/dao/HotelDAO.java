@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.example.Server.dto.Hotel;
-import com.example.Server.dto.User;
 
 public class HotelDAO {
 
