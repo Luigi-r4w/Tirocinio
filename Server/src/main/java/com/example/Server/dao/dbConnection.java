@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class dbConnection {
-    private static String jdbcURL="jdbc:";
-    private static String username="root";
+    private static String jdbcURL="jdbc:postgresql://localhost:5432/ProjectDB";
+    private static String username="postgres";
     private static String password="1234";
     private static Connection con;
 
