@@ -30,7 +30,7 @@ public class UserDAO {
 
     }
 
-    public Boolean Autentificazione(String email, String pass){
+    public Boolean Authentication(String email, String pass){
         try {
             Connection con = null;
             String sql = "select * from utente where email = ? AND password = ?";
