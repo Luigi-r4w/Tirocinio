@@ -20,7 +20,7 @@ public class UserReq {
         utente.NewUser(user);
     }
 
-    @PostMapping("/")
+    @PostMapping("/delete")
     public void deleteUser(@RequestBody User user) throws Exception{
         utente.DeleteUser(user);
     }

@@ -22,7 +22,7 @@ public class HotelReq {
         hotel.NewHotel(hotel_);
     }
 
-    @PostMapping("/")
+    @PostMapping("/delete")
     public void deleteHotel(@RequestBody Hotel hotel_) throws Exception{
         hotel.DeleteHotel(hotel_);
     }
