@@ -36,8 +36,8 @@ public class UserDAO {
             String sql = "select * from utente where email = ? AND password = ?";
             con = dbConnection.getConnection();
             PreparedStatement p1 = con.prepareStatement(sql);
-            p1.setString(1, email.trim());
-            p1.setString(2, pass.trim());
+            p1.setString(1, email);
+            p1.setString(2, pass);
             ResultSet rs = p1.executeQuery();
             con.close();
             if (!rs.next()){

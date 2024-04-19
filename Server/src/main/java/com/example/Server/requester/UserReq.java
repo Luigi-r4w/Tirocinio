@@ -3,6 +3,7 @@ package com.example.Server.requester;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.Server.dto.User;
+import com.example.Server.dto.Utente;
 import com.example.Server.services.UserServ;
 
 @RestController
@@ -11,8 +12,8 @@ public class UserReq {
     UserServ utente = new UserServ();
 
     @PostMapping("/authentication")
-    public Boolean authentication(@RequestBody String user, @RequestBody String pass) throws Exception {
-        return utente.authentication(user, pass);
+    public Boolean authentication(@RequestBody Utente user) throws Exception {
+        return utente.authentication(user.getEmail(), user.getPassword());
     } 
 
     @PostMapping("/")
