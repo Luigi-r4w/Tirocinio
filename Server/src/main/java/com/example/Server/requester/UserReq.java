@@ -2,27 +2,27 @@ package com.example.Server.requester;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.example.Server.dao.UserDAO;
 import com.example.Server.dto.User;
+import com.example.Server.services.UserServ;
 
 @RestController
 @RequestMapping("/user")
 public class UserReq {
-    UserDAO utente = new UserDAO();
+    UserServ utente = new UserServ();
 
-    @GetMapping("/{user}/{pass}")
-    public Boolean authentication(@PathVariable("user") String user, @PathVariable("pass") String pass) throws Exception {
-        return utente.Authentication(user, pass);
-    }
+    @PostMapping("/authentication")
+    public Boolean authentication(@RequestBody String user, @RequestBody String pass) throws Exception {
+        return utente.authentication(user, pass);
+    } 
 
     @PostMapping("/")
     public void newUser(@RequestBody User user) throws Exception {
-        utente.NewUser(user);
+        utente.newUser(user);
     }
 
     @PostMapping("/delete")
     public void deleteUser(@RequestBody User user) throws Exception{
-        utente.DeleteUser(user);
+        utente.deleteUser(user);
     }
 
 }
