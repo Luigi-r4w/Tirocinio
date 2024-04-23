@@ -1,0 +1,26 @@
+
+.spacer {
+    height: 20px; 
+  }
+
+  .spacer2 {
+    height: 5px; 
+  }
+
+  .login-form button {
+    background-color: blue; 
+    color: white;
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+
+  .login-form button:hover {
+    background-color: darkblue; 
+  }
+
+  .login-form label {
+    margin-right: 10px; 
+  }
