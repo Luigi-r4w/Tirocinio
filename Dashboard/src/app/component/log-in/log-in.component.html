@@ -4,7 +4,7 @@
 
 <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="login-form">
   
-    <div class="form-group">
+    <div *ngIf="!isLoginMode" class="form-group">
       <label for="name">Name</label>
       <div class="spacer2"></div>
       <input type="text" id="name" name="name" [(ngModel)]="name" required>
@@ -39,7 +39,12 @@
     
     <div class="spacer"></div>
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid">{{ isLoginMode ? 'Login' : 'Signup' }}</button>
+
+    <div class="spacer"></div>
+
+    <p>{{ isLoginMode ? 'Non hai un account?' : 'Hai già un account?' }} <a style="color: blue;" (click)="switch()">{{ isLoginMode ? 'Registrati' : 'Accedi' }}</a></p>
+
   </form>
   
   

@@ -1,5 +1,30 @@
 export class UserDto {
-    nome: String | undefined;
-    email: String | undefined;
-    password: String | undefined;
+    private _nome: string = '';
+  private _email: string = '';
+  private _password: string = '';
+
+    get nome(): string  {
+        return this._nome;
+      }
+    
+      set nome(value: string ) {
+        this._nome = value;
+      }
+    
+      get email(): string {
+        return this._email;
+      }
+    
+      set email(value: string ) {
+        this._email = value;
+      }
+    
+      get password(): string  {
+        return this._password;
+      }
+    
+      set password(value: string ) {
+        this._password = value;
+      }
+
 }

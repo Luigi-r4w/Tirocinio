@@ -6,9 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsRoutes } from './component.routing';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { LoginComponent } from './log-in/log-in.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './log-in/log-in.component';
 
 
 
