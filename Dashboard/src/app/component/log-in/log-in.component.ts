@@ -10,12 +10,13 @@ import { UtenteDto } from 'src/app/shared/models/utente.dto';
 })
 
 export class LoginComponent {
+
+  constructor(private authService: AuthService){}
   
   isLoginMode: boolean = true;
   name: string = '';
   email: string = '';
   password: string = '';
-  authService = new AuthService;
 
   onSubmit() {
 

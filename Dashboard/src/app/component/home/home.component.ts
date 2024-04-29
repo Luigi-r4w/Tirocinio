@@ -11,6 +11,8 @@ export class HomeComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  isLoginMode: boolean = this.authService.logged;
+
   onClick() {
 
     if(this.authService.logged){

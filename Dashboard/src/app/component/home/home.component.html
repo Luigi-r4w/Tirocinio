@@ -1,5 +1,14 @@
-<label for="cityInput">Inserisci il nome della città:</label>
-<div class="spacer"></div>
-<input type="text" id="cityInput" name="city" placeholder="Es. Napoli">
-<div class="spacer"></div>
-<button type="button" (click)="onClick()">Cerca</button>
+
+<div *ngIf="isLoginMode">
+    <label for="cityInput">Inserisci il nome della città:</label>
+    <div class="spacer"></div>
+    <input type="text" id="cityInput" name="city" placeholder="Es. Napoli">
+    <div class="spacer"></div>
+    <button type="button" (click)="onClick()">Cerca</button>
+</div>
+
+<div *ngIf="!isLoginMode">
+    <label for="cityInput">Prima di effetuare la ricerca ricordati di accedere</label>
+    <div class="spacer"></div>
+    <button type="button" (click)="onClick()">Log In</button>
+</div>
