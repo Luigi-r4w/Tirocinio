@@ -11,14 +11,6 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/component/logIn',
-    title: 'LogIn',
-    icon: 'bi bi-key',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
     path: '/component/hotel',
     title: 'Hotel',
     icon: 'bi bi-card-text',
@@ -33,5 +25,13 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  }
+  },
+  {
+    path: '/component/logIn',
+    title: 'LogIn',
+    icon: 'bi bi-key',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
 ];

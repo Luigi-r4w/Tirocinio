@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 declare var $: any;
 
@@ -14,9 +15,12 @@ export class NavigationComponent implements AfterViewInit {
 
   public showSearch = false;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private authService: AuthService,) {
   }
 
+  logOut(){
+    this.authService.logOut();
+  }
 
   public selectedLanguage: any = {
     language: 'English',

@@ -6,8 +6,8 @@ import { UtenteDto } from 'src/app/shared/models/utente.dto';
   providedIn: 'root'
 })
 export class AuthService {
+  
   logged = false
-  url = ''
 
   constructor() { }
 
@@ -16,10 +16,19 @@ export class AuthService {
   }
 
   registrazione(user: UserDto){
-     
+
+    this.logged=true
+
   }
 
   login(user: UtenteDto){
-     
+
+    this.logged=true
+
   }
+
+  logOut() {
+    this.logged=false
+  }
+
 }
