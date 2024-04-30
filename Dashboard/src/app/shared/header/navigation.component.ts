@@ -14,6 +14,7 @@ export class NavigationComponent implements AfterViewInit {
   @Output() toggleSidebar = new EventEmitter<void>();
 
   public showSearch = false;
+  nome = this.authService.name
 
   constructor(private modalService: NgbModal, private authService: AuthService,) {
   }

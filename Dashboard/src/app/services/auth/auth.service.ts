@@ -8,6 +8,8 @@ import { UtenteDto } from 'src/app/shared/models/utente.dto';
 export class AuthService {
   
   logged = false
+  name = ""
+  email = ""
 
   constructor() { }
 
