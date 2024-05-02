@@ -1,4 +1,5 @@
 export class HotelDto {
+  /*
     private _nome: string = '';
     private _address: string = '';
     private _city: string = '';
@@ -35,5 +36,10 @@ export class HotelDto {
       set link(value: string) {
         this._link = value;
       }
+*/
 
+public nome: string = '';
+public address: string = '';
+public city: string = '';
+public link: string = '';
 }

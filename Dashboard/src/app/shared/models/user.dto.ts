@@ -1,4 +1,5 @@
 export class UserDto {
+  /*
     private _nome: string = '';
   private _email: string = '';
   private _password: string = '';
@@ -26,5 +27,9 @@ export class UserDto {
       set password(value: string ) {
         this._password = value;
       }
+      */
 
+      public nome: string = '';
+      public email: string = '';
+      public password: string = '';
 }

@@ -3,6 +3,7 @@ import { LoginComponent } from './log-in/log-in.component';
 import { HotelComponent } from './hotel/hotel.component';
 import { HomeComponent } from './home/home.component';
 import { authGuard } from '../services/auth/auth.guard';
+import { noAuthGuard } from '../services/auth/no.auth.guard';
 
 
 
@@ -18,7 +19,7 @@ export const ComponentsRoutes: Routes = [
 			{
 				path: 'logIn',
 				component: LoginComponent,
-
+				canActivate: [noAuthGuard]
 			},
 			{
 				path: 'home',

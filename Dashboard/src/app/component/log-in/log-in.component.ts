@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserDto } from 'src/app/shared/models/user.dto';
 import { UtenteDto } from 'src/app/shared/models/utente.dto';
@@ -11,7 +12,7 @@ import { UtenteDto } from 'src/app/shared/models/utente.dto';
 
 export class LoginComponent {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
   
   isLoginMode: boolean = true;
   name: string = '';
@@ -21,23 +22,41 @@ export class LoginComponent {
   onSubmit() {
 
     if(this.isLoginMode){
-      console.log('Email:', this.email);
-      console.log('Password:', this.password);
       const user = new UtenteDto();
       user.email= this.email
       user.password= this.password
-      this.authService.login(user)
+      const ris = this.authService.login(user)
+      if(ris){
+        this.router.navigate(['/home'])
+      } else {
+        const toast = document.getElementById('toast');
+        if (toast) {
+          toast.innerText = "Errore LogIn";
+          toast.style.display = 'block';
+          setTimeout(() => {
+              toast.style.display = 'none';
+          }, 3000);
+        }
+      } 
     }
     else{
-      console.log('Nome:' ,this.name)
-      console.log('Email:', this.email);
-      console.log('Password:', this.password);
       const user = new UserDto();
       user.nome= this.name
       user.email=this.email
       user.password=this.password
-      this.authService.registrazione(user)
-
+      const ris = this.authService.registrazione(user)
+      if(ris){
+        this.router.navigate(['/home'])
+      } else {
+        const toast = document.getElementById('toast');
+        if (toast) {
+          toast.innerText = "Errore Registrazione";
+          toast.style.display = 'block';
+          setTimeout(() => {
+            toast.style.display = 'none';
+          }, 3000);
+        }
+      }
     }
     
   }
