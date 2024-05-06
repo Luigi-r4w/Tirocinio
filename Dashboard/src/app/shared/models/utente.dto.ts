@@ -1,24 +1,21 @@
 export class UtenteDto {
-  /*
-    private _email: string = '';
-  private _password: string = '';
 
-      get email(): string {
-        return this._email;
-      }
+  private email: string = '';
+  private password: string = '';
     
-      set email(value: string ) {
-        this._email = value;
-      }
+  getEmail(): string {
+    return this.email;
+  }
     
-      get password(): string  {
-        return this._password;
-      }
+  setEmail(value: string) {
+    this.email = value;
+  }
     
-      set password(value: string ) {
-        this._password = value;
-      }
-      */
-      public email: string = '';
-      public password: string = '';
+  getPassword(): string {
+    return this.password;
+  }
+    
+  setPassword(value: string) {
+    this.password = value;
+  }
 }

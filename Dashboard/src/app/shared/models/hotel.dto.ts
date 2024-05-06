@@ -1,45 +1,40 @@
 export class HotelDto {
-  /*
-    private _nome: string = '';
-    private _address: string = '';
-    private _city: string = '';
-    private _link: string = '';
     
-    get nome(): string {
-        return this._nome;
-      }
+  private nome: string = '';
+  private address: string = '';
+  private city: string = '';
+  private link: string = '';
     
-      set nome(value: string) {
-        this._nome = value;
-      }
+  getNome(): string {
+    return this.nome;
+  }
     
-      get address(): string {
-        return this._address;
-      }
+  setNome(value: string) {
+    this.nome = value;
+  }
     
-      set address(value: string) {
-        this._address = value;
-      }
+  getAddress(): string {
+    return this.address;
+  }
     
-      get city(): string {
-        return this._city;
-      }
+  setAddress(value: string) {
+    this.address = value;
+  }
     
-      set city(value: string) {
-        this._city = value;
-      }
+  getCity(): string {
+    return this.city;
+  }
     
-      get link(): string {
-        return this._link;
-      }
-    
-      set link(value: string) {
-        this._link = value;
-      }
-*/
+  setCity(value: string) {
+    this.city = value;
+  }
 
-public nome: string = '';
-public address: string = '';
-public city: string = '';
-public link: string = '';
+  getLink(): string {
+    return this.link;
+  }
+    
+  setLink(value: string) {
+    this.link = value;
+  }
+  
 }

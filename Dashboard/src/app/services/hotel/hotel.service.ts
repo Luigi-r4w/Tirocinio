@@ -7,6 +7,10 @@ import { HotelDto } from 'src/app/shared/models/hotel.dto';
 })
 export class HotelService {
 
+  city: string = ''
+  hotels: HotelDto[] = [];
+
+
   constructor(private service: ServiceService) { }
   
   newHotel(hotel: HotelDto){
@@ -14,10 +18,12 @@ export class HotelService {
     
   }
 
-  hotelCity(city: string){
-    this.service.hotelCity(city).subscribe(data => {console.log(data)})
-    
-  }
+  /*hotelCity(city: string){
+    this.service.hotelCity(city).subscribe(data => {console.log(data)
+      this.hotels=data
+    })
+    return this.hotels
+  }*/
 
   delete(user: HotelDto){
     this.service.userDelete(user).subscribe(data => {console.log(data)})

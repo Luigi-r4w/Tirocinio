@@ -1,35 +1,30 @@
 export class UserDto {
-  /*
-    private _nome: string = '';
-  private _email: string = '';
-  private _password: string = '';
 
-    get nome(): string  {
-        return this._nome;
-      }
+  private nome: string = '';
+  private email: string = '';
+  private password: string = '';
     
-      set nome(value: string ) {
-        this._nome = value;
-      }
+  getNome(): string {
+    return this.nome;
+  }
     
-      get email(): string {
-        return this._email;
-      }
+  setNome(value: string) {
+    this.nome = value;
+  }
     
-      set email(value: string ) {
-        this._email = value;
-      }
+  getEmail(): string {
+    return this.email;
+  }
     
-      get password(): string  {
-        return this._password;
-      }
+  setEmail(value: string) {
+    this.email = value;
+  }
     
-      set password(value: string ) {
-        this._password = value;
-      }
-      */
-
-      public nome: string = '';
-      public email: string = '';
-      public password: string = '';
+  getPassword(): string {
+    return this.password;
+  }
+    
+  setPassword(value: string) {
+    this.password = value;
+  }
 }

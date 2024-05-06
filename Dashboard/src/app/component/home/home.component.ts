@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { HotelService } from 'src/app/services/hotel/hotel.service';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,19 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class HomeComponent {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  city: string = ''
 
-  isLoginMode: boolean = this.authService.logged;
+  constructor(private authService: AuthService, private router: Router, private hotelService: HotelService) {}
+
+  isLoginMode: boolean = this.authService.authenticated();
 
   onClick() {
 
-    if(this.authService.logged){
-
+    if(this.authService.authenticated()){
       
+      this.hotelService.city = this.city
+      this.router.navigate(['/component/hotel'])
+
     }else{
       this.router.navigate(['/component/logIn'])
     }

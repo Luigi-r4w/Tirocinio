@@ -2,7 +2,7 @@
 <div *ngIf="isLoginMode">
     <label for="cityInput">Inserisci il nome della città:</label>
     <div class="spacer"></div>
-    <input type="text" id="cityInput" name="city" placeholder="Es. Napoli">
+    <input type="text" id="city" name="city" placeholder="Es. Napoli" [(ngModel)]="city" required>
     <div class="spacer"></div>
     <button type="button" (click)="onClick()">Cerca</button>
 </div>

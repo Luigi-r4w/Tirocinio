@@ -1,11 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HotelDto } from '../shared/models/hotel.dto';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
+
+  hotels: HotelDto[] = [];
+
 
   url= 'http://localhost:8080/';
 
@@ -23,15 +28,15 @@ export class ServiceService {
     return this.Http.post(this.url+'user/delete', body)
   }
 
-  hotelCity(city: string){
-    return this.Http.get(this.url+city)
+  hotelCity(city: string) : Observable<HotelDto[]> {
+    return this.Http.get<HotelDto[]>(this.url+'hotel/'+city)
   }
 
   hotelNew(body: {}){
-    return this.Http.get(this.url+'hotel/')
+    return this.Http.post(this.url+'hotel/', body)
   }
 
   hotelDelete(body: {}){
-    return this.Http.get(this.url+'hotel/delete')
+    return this.Http.post(this.url+'hotel/delete', body)
   }
 }

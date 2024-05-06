@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ServiceService } from 'src/app/services/service.service';
+import { LogInProva } from 'src/app/shared/models/log-in-prova';
 import { UserDto } from 'src/app/shared/models/user.dto';
 import { UtenteDto } from 'src/app/shared/models/utente.dto';
 
@@ -12,7 +14,7 @@ import { UtenteDto } from 'src/app/shared/models/utente.dto';
 
 export class LoginComponent {
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router,private service: ServiceService, private logInProva: LogInProva){}
   
   isLoginMode: boolean = true;
   name: string = '';
@@ -23,10 +25,15 @@ export class LoginComponent {
 
     if(this.isLoginMode){
       const user = new UtenteDto();
-      user.email= this.email
-      user.password= this.password
-      const ris = this.authService.login(user)
-      if(ris){
+      user.setEmail(this.email)
+      user.setPassword(this.password)
+      this.service.userLogin(user).subscribe((response: any)  => {
+        console.log(response)
+        this.logInProva.islogged=Boolean(response)
+      }, error => console.log("error"));
+      console.log("logInProva value : "+this.logInProva.islogged)
+      //this.authService.login(user)
+      if(this.authService.authenticated()){
         this.router.navigate(['/home'])
       } else {
         const toast = document.getElementById('toast');
@@ -41,11 +48,11 @@ export class LoginComponent {
     }
     else{
       const user = new UserDto();
-      user.nome= this.name
-      user.email=this.email
-      user.password=this.password
-      const ris = this.authService.registrazione(user)
-      if(ris){
+      user.setNome(this.name)
+      user.setEmail(this.email)
+      user.setPassword(this.password)
+      this.authService.registrazione(user)
+      if(this.authService.authenticated()){
         this.router.navigate(['/home'])
       } else {
         const toast = document.getElementById('toast');

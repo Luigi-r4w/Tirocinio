@@ -13,7 +13,7 @@ export class noAuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot){
-      return !this.authService.logged 
+      return !this.authService.authenticated() 
     }
 
 
