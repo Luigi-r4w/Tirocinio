@@ -33,7 +33,7 @@ export class LoginComponent {
       }, error => console.log("error"));
       console.log("logInProva value : "+this.logInProva.islogged)
       //this.authService.login(user)
-      if(this.authService.authenticated()){
+      if(this.logInProva.islogged){
         this.router.navigate(['/home'])
       } else {
         const toast = document.getElementById('toast');
