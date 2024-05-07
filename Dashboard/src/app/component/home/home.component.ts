@@ -18,11 +18,9 @@ export class HomeComponent {
 
   onClick() {
 
-    if(this.authService.authenticated()){
-      
+    if(this.isLoginMode){
       this.hotelService.city = this.city
       this.router.navigate(['/component/hotel'])
-
     }else{
       this.router.navigate(['/component/logIn'])
     }

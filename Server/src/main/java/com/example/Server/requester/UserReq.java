@@ -2,6 +2,7 @@ package com.example.Server.requester;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.example.Server.dto.Response;
 import com.example.Server.dto.User;
 import com.example.Server.dto.Utente;
 import com.example.Server.services.UserServ;
@@ -17,8 +18,8 @@ public class UserReq {
     } 
 
     @PostMapping("/")
-    public void newUser(@RequestBody User user) throws Exception {
-        utente.newUser(user);
+    public Response newUser(@RequestBody User user) throws Exception {
+        return utente.newUser(user);
     }
 
     @PostMapping("/delete")

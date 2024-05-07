@@ -6,11 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.example.Server.dto.Response;
 import com.example.Server.dto.User;
 
 public class UserDAO {
 
-    public Boolean NewUser(User utente) {
+    public Response NewUser(User utente) {
+        Response res = new Response();
         try {
             Connection con = null;
             String sql = "Insert into utente VALUES(?,?,?)";
@@ -21,11 +23,14 @@ public class UserDAO {
             p1.setString(3, utente.getPassword());
             p1.executeUpdate();
             con.close();
-            return true;
+            res.setCode("200");
+            return res;
         }
         catch (SQLException e){
             System.out.println(e);
-            return false;
+            res.setCode("400");
+            res.setMessaggio(e.getMessage().split("\n")[1].replace("(", " ").replace(")", " "));
+            return res;
         }
 
     }

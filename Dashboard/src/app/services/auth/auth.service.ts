@@ -13,7 +13,7 @@ export class AuthService {
   private logged = false
   email = ''
 
-  constructor(private service: ServiceService, private Http: HttpClient, private router: Router) { }
+  constructor(private service: ServiceService, private Http: HttpClient, private router: Router,) { }
 
   authenticated(){
     return this.logged
@@ -25,46 +25,31 @@ export class AuthService {
 
   registrazione(user: UserDto){
 
-    this.service.newUser(user).subscribe(data => {console.log(data)
-        this.setLogged(Boolean(data))
+    this.service.newUser(user).subscribe((data : any) => {
+      
+      console.log(data)
+      if(data.code=="200"){
+        this.setLogged(true)
+        this.autenticazione()
+      } else {
+        this.toast(data.messaggio)
+      }
+      
     })
     this.email = user.getEmail()
     
   }
 
   login(user: UtenteDto){
-
-    /* this.service.userLogin(user).subscribe(data => {console.log(data)
-      this.setLogged(Boolean(data))
+    this.service.userLogin(user).subscribe(data => {console.log(data)
+      if(data){
+        this.setLogged(Boolean(data))
+        this.autenticazione()
+      }
+       this.toast("errore logIn")
     })
     this.email = user.getEmail()
-    */
-    
-    console.log("inizio logIn auth.service")
-    this.Http.post('http://localhost:8080/user/authentication', user).subscribe(data => {console.log(data)
-      this.setLogged(Boolean(data))
-      console.log("set logged : "+this.logged)
-    })
-    console.log("fine logIn auth.service")
   }
-  
-/*
-  login(user: UtenteDto) {
-    const successo =  this.service.userLogin(user).subscribe(data => {
-      console.log(data)
-      if(data.toString()=='true')
-        this.setLogged(true)
-        console.log("auth: "+this.authenticated())
-      })
-      if (successo) {
-        console.log('Login effettuato con successo');
-        return true
-      } else {
-        console.log('Login fallito');
-        return false
-      }
-  }
-  */
 
   delete(user: UtenteDto){
     this.service.userDelete(user).subscribe(data => {console.log(data)})
@@ -77,6 +62,25 @@ export class AuthService {
     this.logged=false
     this.email = ''
     this.router.navigate(['/component/logIn'])
+  }
+
+  autenticazione() {
+    if(this.authenticated()){
+      this.router.navigate(['/home'])
+    } else {
+      this.toast("auth")
+    }
+  }
+
+  toast(text: string){
+    const toast = document.getElementById('toast');
+      if (toast) {
+        toast.innerText = text;
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 3000);
+      }
   }
 
 }

@@ -37,4 +37,10 @@ export class HotelDto {
     this.link = value;
   }
   
+  constructor(nome: string = '', address: string = '', city: string = '', link: string = '') {
+    this.nome = nome;
+    this.address = address;
+    this.city = city;
+    this.link = link;
+  }
 }

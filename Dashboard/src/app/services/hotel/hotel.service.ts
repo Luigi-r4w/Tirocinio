@@ -18,12 +18,19 @@ export class HotelService {
     
   }
 
-  /*hotelCity(city: string){
-    this.service.hotelCity(city).subscribe(data => {console.log(data)
-      this.hotels=data
-    })
+  hotelCity(city: string){
+
+    this.service.hotelCity(city).subscribe((response: any)  => {
+      console.log(response)
+      for(let i=0; i<response.length; i++){
+        this.hotels[i] = new HotelDto(response[i].name, response[i].address, response[i].city, response[i].link)
+      }
+
+    }, error => this.hotels.length=0);
+
     return this.hotels
-  }*/
+
+  }
 
   delete(user: HotelDto){
     this.service.userDelete(user).subscribe(data => {console.log(data)})

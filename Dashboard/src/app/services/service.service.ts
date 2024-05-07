@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HotelDto } from '../shared/models/hotel.dto';
 import { Observable } from 'rxjs';
-
+import { Response } from '../shared/models/response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,8 @@ export class ServiceService {
 
   constructor(private Http: HttpClient) { }
 
-  newUser( body: {}){
-    return this.Http.post(this.url+'user/', body)
+  newUser( body: {}) : Observable<Response>{
+    return this.Http.post<Response>(this.url+'user/', body)
   }
 
   userLogin( body: {}){

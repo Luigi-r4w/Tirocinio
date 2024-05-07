@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HotelService } from 'src/app/services/hotel/hotel.service';
 import { ServiceService } from 'src/app/services/service.service';
 import { HotelDto } from 'src/app/shared/models/hotel.dto';
@@ -9,21 +10,20 @@ import { HotelDto } from 'src/app/shared/models/hotel.dto';
   styleUrls: ['./hotel.component.scss']
 })
 export class HotelComponent {
-  //hotels: test[] = [];
 
+  hotels: HotelDto[] = [];
 
-  constructor(private hotelSevice: HotelService, private service: ServiceService){}
+  constructor(private hotelSevice: HotelService, private service: ServiceService, private router: Router){}
   
-  hotel(){
+  ngOnInit(){
 
-    //this.hotels = this.hotelSevice.hotelCity(this.hotelSevice.city)
-
-     this.service.hotelCity(this.hotelSevice.city).subscribe((response: any)  => {
-      console.log(response)
-      for(let i=0; i<response.length; i++){
-        console.log(response[i].name);
-      }
-    }, error => console.log("error"));
+    this.hotels= this.hotelSevice.hotelCity(this.hotelSevice.city)
+    
   }
+
+  onClick() {
+    this.router.navigate(['/home'])
+  }
+  
 
 }

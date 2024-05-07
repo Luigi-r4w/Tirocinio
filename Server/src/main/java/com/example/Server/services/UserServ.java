@@ -1,6 +1,7 @@
 package com.example.Server.services;
 
 import com.example.Server.dao.UserDAO;
+import com.example.Server.dto.Response;
 import com.example.Server.dto.User;
 
 public class UserServ {
@@ -10,8 +11,8 @@ public class UserServ {
         return utente.Authentication(user, pass);
     } 
 
-    public void newUser(User user) throws Exception {
-        utente.NewUser(user);
+    public Response newUser(User user) throws Exception {
+        return utente.NewUser(user);
     }
 
     public void deleteUser(User user) throws Exception{
