@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   
   private logged = false
-  email = ''
+  nome = ''
 
   constructor(private service: ServiceService, private Http: HttpClient, private router: Router,) { }
 
@@ -36,31 +36,36 @@ export class AuthService {
       }
       
     })
-    this.email = user.getEmail()
+    this.nome = user.getNome()
     
   }
 
   login(user: UtenteDto){
-    this.service.userLogin(user).subscribe(data => {console.log(data)
-      if(data){
-        this.setLogged(Boolean(data))
+
+    this.service.userLogin(user).subscribe((data : any) => {
+      
+      console.log(data)
+      if(data.code=="200"){
+        this.setLogged(true)
+        this.nome=data.messaggio
         this.autenticazione()
+      } else {
+        this.toast(data.messaggio)
       }
-       this.toast("errore logIn")
+      
     })
-    this.email = user.getEmail()
   }
 
   delete(user: UtenteDto){
     this.service.userDelete(user).subscribe(data => {console.log(data)})
     this.logged=false
-    this.email = ''
+    this.nome = ''
     this.router.navigate(['/component/logIn'])
   }
 
   logOut() {
     this.logged=false
-    this.email = ''
+    this.nome = ''
     this.router.navigate(['/component/logIn'])
   }
 

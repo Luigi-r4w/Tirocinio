@@ -24,6 +24,10 @@ export class HotelComponent {
   onClick() {
     this.router.navigate(['/home'])
   }
+
+  onInfo() {
+    this.router.navigate(['/home'])
+  }
   
 
 }

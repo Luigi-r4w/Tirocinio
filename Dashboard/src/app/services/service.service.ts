@@ -20,8 +20,8 @@ export class ServiceService {
     return this.Http.post<Response>(this.url+'user/', body)
   }
 
-  userLogin( body: {}){
-    return this.Http.post(this.url+'user/authentication', body)
+  userLogin( body: {}) : Observable<Response>{
+    return this.Http.post<Response>(this.url+'user/authentication', body)
   }
 
   userDelete( body: {}){

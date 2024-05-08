@@ -3,6 +3,10 @@
     height: 20px; 
   }
 
+  .spacer1 {
+    height: 40px; 
+  }
+
   .spacer2 {
     height: 5px; 
   }
@@ -11,10 +15,11 @@
     background-color: blue; 
     color: white;
     border: none; 
-    padding: 10px 20px; 
     border-radius: 5px; 
     cursor: pointer; 
     transition: background-color 0.3s; 
+    height: 30px; 
+    width: 150px; 
   }
 
   .login-form button:hover {
@@ -37,4 +42,9 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: none; 
+  }
+
+  input {
+    height: 25px; 
+    width: 150px; 
   }

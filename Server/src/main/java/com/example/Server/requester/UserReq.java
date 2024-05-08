@@ -13,7 +13,7 @@ public class UserReq {
     UserServ utente = new UserServ();
 
     @PostMapping("/authentication")
-    public Boolean authentication(@RequestBody Utente user) throws Exception {
+    public Response authentication(@RequestBody Utente user) throws Exception {
         return utente.authentication(user.getEmail(), user.getPassword());
     } 
 

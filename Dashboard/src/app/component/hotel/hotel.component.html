@@ -6,14 +6,20 @@
       <p class="hotel-city">{{item.getCity()}}</p>
       <p class="hotel-address">{{item.getAddress()}}</p>
       <p class="hotel-link">{{item.getLink()}}</p>
-      <button type="button">Button</button>
+      <button type="button" (click)="onInfo()">Info</button>
 
     </div>
   </div>
 
 <div *ngIf="hotels.length==0">
-    <label for="cityInput">Non hai inserito una città</label>
-    <div class="spacer"></div>
-    <button type="button" (click)="onClick()">Torna alla home</button>
+  <div class="card">
+    <div class="card-body">
+    <div class="class">
+      <label class="text" for="cityInput">Ops, la città che stai cercando non è stata trovata</label>
+      <div class="spacer"></div>
+      <button type="button" (click)="onClick()">Torna alla home</button>
+    </div>
+    </div>
+  </div>  
 </div>
   

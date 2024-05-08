@@ -21,6 +21,7 @@ export class HotelService {
   hotelCity(city: string){
 
     this.service.hotelCity(city).subscribe((response: any)  => {
+      this.hotels.length=0
       console.log(response)
       for(let i=0; i<response.length; i++){
         this.hotels[i] = new HotelDto(response[i].name, response[i].address, response[i].city, response[i].link)

@@ -35,7 +35,8 @@ public class UserDAO {
 
     }
 
-    public Boolean Authentication(String email, String pass){
+    public Response Authentication(String email, String pass){
+        Response res = new Response();
         try {
             Connection con = null;
             String sql = "select * from utente where email = ? AND password = ?";
@@ -46,13 +47,19 @@ public class UserDAO {
             ResultSet rs = p1.executeQuery();
             con.close();
             if (!rs.next()){
-                return false;
+                res.setCode("400");
+                res.setMessaggio("User not foud");
+                return res;
             }
-            return true;
+            res.setCode("200");
+            res.setMessaggio(rs.getString(1));
+            return res;
         }
         catch (SQLException e){
             System.out.println(e);
-            return false;
+            res.setCode("400");
+            res.setMessaggio(e.getMessage().split("\n")[1].replace("(", " ").replace(")", " "));
+            return res;
         }
 
     }

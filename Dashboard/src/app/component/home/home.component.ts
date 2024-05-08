@@ -11,6 +11,7 @@ import { HotelService } from 'src/app/services/hotel/hotel.service';
 export class HomeComponent {
 
   city: string = ''
+  nome: String = this.authService.nome
 
   constructor(private authService: AuthService, private router: Router, private hotelService: HotelService) {}
 
@@ -19,12 +20,28 @@ export class HomeComponent {
   onClick() {
 
     if(this.isLoginMode){
-      this.hotelService.city = this.city
-      this.router.navigate(['/component/hotel'])
+      if(this.city!=""){
+        this.hotelService.city = this.city
+        this.router.navigate(['/component/hotel'])
+        
+      }else {
+        this.toast("Campo città vuoto")
+      }
+      
     }else{
       this.router.navigate(['/component/logIn'])
     }
   }
   
+  toast(text: string){
+    const toast = document.getElementById('toast');
+      if (toast) {
+        toast.innerText = text;
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 3000);
+      }
+  }
 
 }

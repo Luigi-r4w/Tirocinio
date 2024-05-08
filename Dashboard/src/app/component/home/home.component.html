@@ -1,6 +1,10 @@
-
-<div *ngIf="isLoginMode">
-    <label for="cityInput">Inserisci il nome della città:</label>
+<div class="card">
+    <div class="card-body">
+        
+<div class="class" *ngIf="isLoginMode">
+    <label class="text" >Benvenuto {{nome}}</label>
+    <div class="spacer1"></div>
+    <label class="text" for="cityInput">Inserisci il nome della città:</label>
     <div class="spacer"></div>
     <input type="text" id="city" name="city" placeholder="Es. Napoli" [(ngModel)]="city" required>
     <div class="spacer"></div>
@@ -8,8 +12,12 @@
     
 </div>
 
-<div *ngIf="!isLoginMode">
-    <label for="cityInput">Prima di effetuare la ricerca ricordati di accedere</label>
+<div class="class" *ngIf="!isLoginMode">
+    <label class="text" for="cityInput">Per poter esplorare gli hotel, è necessario aver effettuato l'accesso.</label>
     <div class="spacer"></div>
     <button type="button" (click)="onClick()">Log In</button>
 </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
