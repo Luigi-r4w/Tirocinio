@@ -4,7 +4,7 @@
     <div class="hotel-details">
       <h2 class="hotel-name">{{item.getNome()}}</h2>
       <p class="hotel-city">{{item.getCity()}}</p>
-      <button type="button" (click)="onInfo()">Info</button>
+      <button type="button" (click)="onInfo(item.getId())">Info</button>
 
     </div>
   </div>

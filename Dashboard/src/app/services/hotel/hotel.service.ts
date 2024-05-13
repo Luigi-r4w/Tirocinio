@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { HotelDto } from 'src/app/shared/models/hotel.dto';
+import { HotelInfoDto } from 'src/app/shared/models/hotelInfo.dto';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,10 @@ export class HotelService {
 
   city: string = ''
   hotels: HotelDto[] = [];
+  idHotel: string = '' 
+  hotelInfo: HotelInfoDto | undefined;
 
-
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private router: Router,) { }
   
   newHotel(hotel: HotelDto){
     this.service.hotelNew(hotel).subscribe(data => {console.log(data)})
@@ -38,7 +41,16 @@ export class HotelService {
     
   }
 
-  info(id: string){
-    this.service.info(id).subscribe(data => {console.log(data)})
+  info(){
+    this.service.info(this.idHotel).subscribe((response: any) => {
+      console.log("response "+response)
+      this.hotelInfo = new HotelInfoDto(response.hotel_name, response.address, response.city, response.zip, response.country_trans, response.timezone, response.currency_code, response.url)
+      console.log("hotel info = "+this.hotelInfo)
+      this.hotelDetails()
+    })
+  }
+
+  hotelDetails(){
+    this.router.navigate(['/component/info'])
   }
 }

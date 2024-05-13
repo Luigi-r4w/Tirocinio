@@ -40,6 +40,12 @@ public class HotelServ {
     }
 
     public HotelInfo info(String id) {
-        return hotelApi.info(id);
+        try{
+            return hotelApi.info(id);
+
+        } catch (Exception e){
+            System.out.println(e);
+            return null; 
+        }
     }
 }

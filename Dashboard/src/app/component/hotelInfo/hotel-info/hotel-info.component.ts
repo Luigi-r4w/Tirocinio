@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HotelService } from 'src/app/services/hotel/hotel.service';
-import { HotelDto } from 'src/app/shared/models/hotel.dto';
+import { HotelInfoDto } from 'src/app/shared/models/hotelInfo.dto';
 
 @Component({
   selector: 'app-hotel-info',
@@ -11,12 +11,14 @@ export class HotelInfoComponent {
 
   constructor(private hotelSevice: HotelService, ){}
 
-  hotel: HotelDto | undefined
+  hotel: HotelInfoDto | undefined
+
+  id!: string;
 
   ngOnInit(){
 
-    
-    
+    this.hotel = this.hotelSevice.hotelInfo;
+    console.log("ngOnInit "+this.hotel)
   }
 
 }

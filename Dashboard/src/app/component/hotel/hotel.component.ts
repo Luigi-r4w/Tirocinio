@@ -12,7 +12,7 @@ export class HotelComponent {
 
   hotels: HotelDto[] = [];
 
-  constructor(private hotelSevice: HotelService, private router: Router){}
+  constructor(private hotelSevice: HotelService, private router: Router,){}
   
   ngOnInit(){
 
@@ -24,8 +24,9 @@ export class HotelComponent {
     this.router.navigate(['/home'])
   }
 
-  onInfo() {
-    this.router.navigate(['/component/info'])
+  onInfo(id: string) {
+    this.hotelSevice.idHotel = id
+    this.hotelSevice.info()
   }
   
 

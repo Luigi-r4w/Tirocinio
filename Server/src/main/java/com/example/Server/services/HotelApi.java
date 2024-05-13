@@ -1,30 +1,22 @@
 package com.example.Server.services;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONObject;
 
 import com.example.Server.dao.HotelDAO;
 import com.example.Server.dto.Hotel;
 import com.example.Server.dto.HotelInfo;
+import com.example.Server.services.HotelRes.HotelInfoRes;
 import com.google.gson.Gson;
 
 
 public class HotelApi {
     HotelDAO hotel = new HotelDAO();
 
-    /* 
     public ArrayList<Hotel> hotelApiCity(String city) throws IOException, InterruptedException{
         
         String cityId = CityID(city);
@@ -37,22 +29,23 @@ public class HotelApi {
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+        Gson gson = new Gson();
+        HotelRes hotelRes = gson.fromJson(response.body(), HotelRes.class);
+
+        ArrayList<HotelInfoRes> result = hotelRes.getResults();
         
-
-
-            
-        for(int i=0; i<response.body().length(); i++){  
-            Hotel hotelResponde = new Hotel(Name, Id, city);
+        for (HotelInfoRes hotelInfoRes : result) {
+            String id = hotelInfoRes.getId();
+            String name = hotelInfoRes.getName();
+            Hotel hotelResponde = new Hotel(name, id, city);
             hotels.add(hotelResponde);
         }
     
         return hotels;
-    } */
+    } 
 
     public String CityID(String city) throws IOException, InterruptedException{
 
-        /* 
         HttpRequest request = HttpRequest.newBuilder()
 		.uri(URI.create("https://booking-com.p.rapidapi.com/v1/hotels/locations?name="+city+"&locale=en-gb"))
 		.header("X-RapidAPI-Key", "293acc30c2msh2762dd407645365p1b0a5djsnded21308c160")
@@ -65,54 +58,20 @@ public class HotelApi {
         String id = locations[0].getDest_id();
 
         return id;
-        */
-        return "-111459";
-    }
-
-
-    public ArrayList<Hotel> hotelApiCity(String city) throws Exception {
-        ArrayList<Hotel> hotels = new ArrayList<Hotel>();
-
-
-
-        String url = "https://booking-com.p.rapidapi.com/v1/hotels/search?checkout_date=2024-09-15&order_by=popularity&filter_by_currency=AED&room_number=1&dest_id="+city+"&dest_type=city&adults_number=2&checkin_date=2024-09-14&locale=en-gb&units=metric&include_adjacency=true&children_number=2&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&page_number=0&children_ages=5%2C0";
-        URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        Map<String, String> headers = new HashMap<>();
-
-    headers.put("X-RapidAPI-Key", "293acc30c2msh2762dd407645365p1b0a5djsnded21308c160");
-    headers.put("X-RapidAPI-Host", "booking-com.p.rapidapi.com");
-
-    for (String headerKey : headers.keySet()) {
-        con.setRequestProperty(headerKey, headers.get(headerKey));
-    }
-        con.setRequestMethod("GET");
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
-        in.close();
-        //print in String
-        System.out.println(response.toString());
-        //Read JSON response and print
-        JSONObject myResponse = new JSONObject(response.toString());
-        System.out.println("result after Reading JSON Response");
-        JSONObject res = (JSONObject) myResponse.get("");
-
-        return hotels;
     }
     
-    public HotelInfo info(String id){
+    public HotelInfo info(String id) throws Exception {
         HotelInfo hotelInfo = new HotelInfo();
 
-
+        HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://booking-com.p.rapidapi.com/v2/hotels/details?currency=AED&locale=en-gb&checkout_date=2024-09-15&hotel_id="+id+"&checkin_date=2024-09-14"))
+		.header("X-RapidAPI-Key", "293acc30c2msh2762dd407645365p1b0a5djsnded21308c160")
+		.header("X-RapidAPI-Host", "booking-com.p.rapidapi.com")
+		.method("GET", HttpRequest.BodyPublishers.noBody())
+		.build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        Gson gson = new Gson();
+        hotelInfo = gson.fromJson(response.body(), HotelInfo.class);
         return hotelInfo;
     }
 
@@ -131,19 +90,45 @@ class Location {
 
 }
 
-
 class HotelRes {
-    private String name;
-   
-    public String getName() {
-        return name;
+
+
+    private ArrayList<HotelInfoRes> result;
+
+    /**
+     * HotelInfoRes
+     */
+    public class HotelInfoRes {
+        
+        private String hotel_id;
+
+        private String hotel_name;
+
+        public String getName() {
+            return hotel_name;
+        }
+
+        public void setName(String hotel_name) {
+            this.hotel_name = hotel_name;
+        }
+
+        public String getId() {
+            return hotel_id;
+        }
+
+        public void setId(String id) {
+            this.hotel_id = id;
+        }
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public ArrayList<HotelInfoRes> getResults() {
+        return result;
     }
 
+    public void setResults(ArrayList<HotelInfoRes> results) {
+        this.result = results;
+    }
 }
-
 
 
