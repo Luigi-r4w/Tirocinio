@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { HotelComponent } from './hotel/hotel.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './log-in/log-in.component';
+import { HotelInfoComponent } from './hotelInfo/hotel-info/hotel-info.component';
 
 
 
@@ -24,7 +25,8 @@ import { LoginComponent } from './log-in/log-in.component';
   declarations: [
     LoginComponent,
     HotelComponent,
-    HomeComponent
+    HomeComponent,
+    HotelInfoComponent
   ],
 })
 export class ComponentsModule { }

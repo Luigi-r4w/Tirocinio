@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HotelDto } from '../shared/models/hotel.dto';
 import { Observable } from 'rxjs';
 import { Response } from '../shared/models/response';
+import { HotelInfoDto } from '../shared/models/hotelInfo.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,9 @@ export class ServiceService {
 
   hotelDelete(body: {}){
     return this.Http.post(this.url+'hotel/delete', body)
+  }
+
+  info(id: string){
+    return this.Http.get<HotelInfoDto>(this.url+'hotel/info/'+id)
   }
 }

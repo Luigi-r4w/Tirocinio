@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HotelService } from 'src/app/services/hotel/hotel.service';
-import { ServiceService } from 'src/app/services/service.service';
 import { HotelDto } from 'src/app/shared/models/hotel.dto';
 
 @Component({
@@ -13,7 +12,7 @@ export class HotelComponent {
 
   hotels: HotelDto[] = [];
 
-  constructor(private hotelSevice: HotelService, private service: ServiceService, private router: Router){}
+  constructor(private hotelSevice: HotelService, private router: Router){}
   
   ngOnInit(){
 
@@ -26,7 +25,7 @@ export class HotelComponent {
   }
 
   onInfo() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/component/info'])
   }
   
 

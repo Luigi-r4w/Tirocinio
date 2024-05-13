@@ -24,7 +24,7 @@ export class HotelService {
       this.hotels.length=0
       console.log(response)
       for(let i=0; i<response.length; i++){
-        this.hotels[i] = new HotelDto(response[i].name, response[i].address, response[i].city, response[i].link)
+        this.hotels[i] = new HotelDto(response[i].name, response[i].id, response[i].city)
       }
 
     }, error => this.hotels.length=0);
@@ -36,5 +36,9 @@ export class HotelService {
   delete(user: HotelDto){
     this.service.userDelete(user).subscribe(data => {console.log(data)})
     
+  }
+
+  info(id: string){
+    this.service.info(id).subscribe(data => {console.log(data)})
   }
 }

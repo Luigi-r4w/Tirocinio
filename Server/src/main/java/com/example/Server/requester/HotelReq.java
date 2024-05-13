@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.Server.dto.Hotel;
+import com.example.Server.dto.HotelInfo;
 import com.example.Server.services.HotelServ;
 
 @RestController
@@ -25,5 +26,10 @@ public class HotelReq {
     @PostMapping("/delete")
     public void deleteHotel(@RequestBody Hotel hotel_) throws Exception{
         hotel.deleteHotel(hotel_);
+    }
+
+    @GetMapping("/info/{id}")
+    public HotelInfo infoHotel(@PathVariable String id) throws Exception{
+        return hotel.info(id);
     }
 }

@@ -3,9 +3,8 @@ package com.example.Server.dto;
 public class Hotel {
 
     private String name;
-    private String address;
+    private String id;
     private String city;
-    private String link;
 
     public String getName() {
         return name;
@@ -14,11 +13,11 @@ public class Hotel {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getId() {
+        return id;
     }
-    public void setAddress(String address) {
-        this.address = address;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCity() {
@@ -28,18 +27,11 @@ public class Hotel {
         this.city = city;
     }
     
-    public String getLink() {
-        return link;
-    }
-    public void setLink(String link) {
-        this.link = link;
-    }
 
-    public Hotel(String name, String address, String city,String link){
+    public Hotel(String name, String id, String city){
         this.name = name;
-        this.address = address;
+        this.id = id;
         this.city = city;
-        this.link = link;
     }
    
 
