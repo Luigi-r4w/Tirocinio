@@ -17,6 +17,8 @@ export class HotelComponent {
   ngOnInit(){
 
     this.hotels= this.hotelSevice.hotelCity(this.hotelSevice.city)
+    console.log(this.hotels)
+    console.log(this.hotels[0].main_photo_url)
     
   }
 

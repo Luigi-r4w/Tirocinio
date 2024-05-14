@@ -6,6 +6,7 @@ import { HotelInfoDto } from 'src/app/shared/models/hotelInfo.dto';
   selector: 'app-hotel-info',
   templateUrl: './hotel-info.component.html',
   styleUrls: ['./hotel-info.component.scss']
+  
 })
 export class HotelInfoComponent {
 

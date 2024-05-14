@@ -31,13 +31,14 @@ public class HotelApi {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         Gson gson = new Gson();
         HotelRes hotelRes = gson.fromJson(response.body(), HotelRes.class);
-
+        
         ArrayList<HotelInfoRes> result = hotelRes.getResults();
         
         for (HotelInfoRes hotelInfoRes : result) {
             String id = hotelInfoRes.getId();
             String name = hotelInfoRes.getName();
-            Hotel hotelResponde = new Hotel(name, id, city);
+            String main_photo_url = hotelInfoRes.getMain_photo_url();
+            Hotel hotelResponde = new Hotel(name, id, city, main_photo_url);
             hotels.add(hotelResponde);
         }
     
@@ -52,7 +53,7 @@ public class HotelApi {
 		.header("X-RapidAPI-Host", "booking-com.p.rapidapi.com")
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());        
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());  
         Gson gson = new Gson();
         Location[] locations = gson.fromJson(response.body(), Location[].class);
         String id = locations[0].getDest_id();
@@ -103,6 +104,16 @@ class HotelRes {
         private String hotel_id;
 
         private String hotel_name;
+
+        private String main_photo_url;
+
+        public String getMain_photo_url() {
+            return main_photo_url;
+        }
+
+        public void setMain_photo_url(String main_photo_url) {
+            this.main_photo_url = main_photo_url;
+        }
 
         public String getName() {
             return hotel_name;

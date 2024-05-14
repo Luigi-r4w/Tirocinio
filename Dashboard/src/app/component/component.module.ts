@@ -10,6 +10,8 @@ import { HotelComponent } from './hotel/hotel.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './log-in/log-in.component';
 import { HotelInfoComponent } from './hotelInfo/hotel-info/hotel-info.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -20,7 +22,10 @@ import { HotelInfoComponent } from './hotelInfo/hotel-info/hotel-info.component'
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule, 
+    MatButtonModule,
+
   ],
   declarations: [
     LoginComponent,

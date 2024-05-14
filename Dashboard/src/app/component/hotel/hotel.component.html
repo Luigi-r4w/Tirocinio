@@ -1,13 +1,18 @@
 
-  <div class="hotel-card" *ngFor="let item of hotels">
-    <!-- <img src="" alt="Hotel Image" class="hotel-image"> -->
-    <div class="hotel-details">
-      <h2 class="hotel-name">{{item.getNome()}}</h2>
-      <p class="hotel-city">{{item.getCity()}}</p>
-      <button type="button" (click)="onInfo(item.getId())">Info</button>
-
-    </div>
-  </div>
+ <div *ngFor="let item of hotels">
+  <div class="spacer"></div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{item.getNome()}}</mat-card-title>
+        <mat-card-subtitle>{{item.getCity()}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src={{item.main_photo_url}} >
+      <mat-card-actions>
+        <button class="button" (click)="onInfo(item.getId())">INFO</button>
+      </mat-card-actions>
+    </mat-card>
+  </div> 
 
 <div *ngIf="hotels.length==0">
   <div class="card">

@@ -1,13 +1,11 @@
+
 <div class="card">
     <div class="card-body">
-        <h2 class="hotel-name">Name : {{hotel?.getHotelname()}}</h2>
-        <h2 class="address">Address : {{hotel?.getAddress()}}</h2>
-        <h2 class="city">City : {{hotel?.getCity()}}</h2>
-        <h2 class="zip">Cap : {{hotel?.getZip()}}</h2>
-        <h2 class="Country_trans">Country : {{hotel?.getCountry_trans()}}</h2>
-        <h2 class="Timezone">Timezone : {{hotel?.getTimezone()}}</h2>
-        <h2 class="Currency_code">Currency_code : {{hotel?.getCurrency_code()}}</h2>
-        <h2 class="url">url : {{hotel?.getUrl()}}</h2>
-
+        <h2 Style="font-size: x-large;" class="hotel-name">{{hotel?.getHotelname()}}</h2>
+        <h2 Style="font-size: medium;" class="address">{{hotel?.getAddress()}}, {{hotel?.getCity()}}, {{hotel?.getZip()}} </h2>
+        <h2 class="Country_trans">{{hotel?.getCountry_trans()}}</h2>
+        <h2 class="Timezone">Timezone: {{hotel?.getTimezone()}}</h2>
+        <h2 class="Currency_code">Currency: {{hotel?.getCurrency_code()}}</h2>
+        <a [href]="hotel?.getUrl()" target="_blank" class="url">Visita il sito</a>
     </div>
 </div>
