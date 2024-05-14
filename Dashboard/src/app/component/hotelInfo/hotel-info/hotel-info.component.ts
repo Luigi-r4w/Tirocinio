@@ -19,7 +19,7 @@ export class HotelInfoComponent {
   ngOnInit(){
 
     this.hotel = this.hotelSevice.hotelInfo;
-    console.log("ngOnInit "+this.hotel)
+
   }
 
 }

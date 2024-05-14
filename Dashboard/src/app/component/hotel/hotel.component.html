@@ -7,7 +7,7 @@
         <mat-card-title>{{item.getNome()}}</mat-card-title>
         <mat-card-subtitle>{{item.getCity()}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src={{item.main_photo_url}} >
+      <img mat-card-image src={{item.getMain_photo_url()}} >
       <mat-card-actions>
         <button class="button" (click)="onInfo(item.getId())">INFO</button>
       </mat-card-actions>

@@ -3,7 +3,7 @@ export class HotelDto {
   private nome: string = '';
   private id: string = '';
   private city: string = '';
-  public main_photo_url: string = '';
+  private main_photo_url: string = '';
     
   getNome(): string {
     return this.nome;
