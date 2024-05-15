@@ -13,6 +13,8 @@ export class HotelComponent {
   hotels: HotelDto[] = [];
 
   constructor(private hotelSevice: HotelService, private router: Router,){}
+
+  city = this.hotelSevice.city
   
   ngOnInit(){
 

@@ -15,13 +15,14 @@ public class HotelDAO {
     public boolean NewHotel(Hotel hotel) {
         try{
             Connection con = null;
-            String sql = "Insert into hotel VALUES(?,?,?,?)";
+            String sql = "Insert into hotel VALUES(?,?,?,?,?)";
             con = dbConnection.getConnection();
             PreparedStatement p1 = con.prepareStatement(sql);
             p1.setString(1, hotel.getName());
             p1.setString(2, hotel.getId());
             p1.setString(3, hotel.getCity());
             p1.setString(4, hotel.getMain_photo_url());
+            p1.setString(5, hotel.getCity_research());
             p1.executeUpdate();
             con.close();
             return true;
@@ -36,14 +37,14 @@ public class HotelDAO {
     public ArrayList<Hotel> HotelCity(String city) {
         try {
             Connection con = null;
-            String sql = "Select * From hotel Where hotel.city=?";
+            String sql = "Select * From hotel Where hotel.city_research=?";
             con = dbConnection.getConnection();
             PreparedStatement p1 = con.prepareStatement(sql);
             p1.setString(1, city);
             ResultSet rs1 = p1.executeQuery();
             ArrayList<Hotel> hotel = new ArrayList<>();
             while(rs1.next()) {
-                hotel.add(new Hotel(rs1.getString(1), rs1.getString(2), rs1.getString(3), rs1.getString(4)));
+                hotel.add(new Hotel(rs1.getString(1), rs1.getString(2), rs1.getString(3), rs1.getString(4), rs1.getString(5)));
             }
             con.close();
             rs1.close();

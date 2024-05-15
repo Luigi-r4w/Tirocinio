@@ -6,7 +6,15 @@ public class Hotel {
     private String id;
     private String city;
     private String main_photo_url;
+    private String city_research;
 
+
+    public String getCity_research() {
+        return city_research;
+    }
+    public void setCity_research(String city_research) {
+        this.city_research = city_research;
+    }
     public String getName() {
         return name;
     }
@@ -29,11 +37,12 @@ public class Hotel {
     }
     
 
-    public Hotel(String name, String id, String city, String main_photo_url){
+    public Hotel(String name, String id, String city, String main_photo_url, String city_research){
         this.name = name;
         this.id = id;
         this.city = city;
         this.main_photo_url = main_photo_url;
+        this.city_research = city_research;
     }
     public String getMain_photo_url() {
         return main_photo_url;

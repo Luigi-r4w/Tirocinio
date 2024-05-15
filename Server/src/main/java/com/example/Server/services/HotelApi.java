@@ -37,8 +37,9 @@ public class HotelApi {
         for (HotelInfoRes hotelInfoRes : result) {
             String id = hotelInfoRes.getId();
             String name = hotelInfoRes.getName();
+            String cityy = hotelInfoRes.getCity();
             String main_photo_url = hotelInfoRes.getMain_photo_url();
-            Hotel hotelResponde = new Hotel(name, id, city, main_photo_url);
+            Hotel hotelResponde = new Hotel(name, id, cityy, main_photo_url, city);
             hotels.add(hotelResponde);
         }
     
@@ -54,9 +55,15 @@ public class HotelApi {
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());  
+        System.out.println(response.body());
         Gson gson = new Gson();
         Location[] locations = gson.fromJson(response.body(), Location[].class);
-        String id = locations[0].getDest_id();
+        int i = 0;
+
+        while (!locations[i].getCity_name().equals(city)) {
+            i++;
+        }
+        String id = locations[i].getDest_id();
 
         return id;
     }
@@ -80,7 +87,17 @@ public class HotelApi {
 
 class Location {
     private String dest_id;
+
+    private String name;
    
+    public String getCity_name() {
+        return name;
+    }
+
+    public void setCity_name(String city_name) {
+        this.name = city_name;
+    }
+
     public String getDest_id() {
         return dest_id;
     }
@@ -106,6 +123,17 @@ class HotelRes {
         private String hotel_name;
 
         private String main_photo_url;
+
+        private String city;
+
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
 
         public String getMain_photo_url() {
             return main_photo_url;
