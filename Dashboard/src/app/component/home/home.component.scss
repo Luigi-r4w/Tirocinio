@@ -24,7 +24,6 @@ button {
 
   .class{
     display: grid;
-    place-items: center;
   }
 
   .toast {
@@ -40,3 +39,23 @@ button {
     z-index: 1000;
     display: none; 
   }
+
+  .Benvenuto{
+    color: gray;
+    font-size: 40px;
+  }
+
+  .Trova{
+    color: gray;
+    font-size: 30px;
+  }
+
+  .text{
+    color: gray;
+    font-size: 20px;
+  }
+
+  .inputCity{
+    max-width: 200px;
+  }
+  

@@ -27,7 +27,7 @@ export class HotelService {
       this.hotels.length=0
       console.log(response)
       for(let i=0; i<response.length; i++){
-        this.hotels[i] = new HotelDto(response[i].name, response[i].id, response[i].city)
+        this.hotels[i] = new HotelDto(response[i].name, response[i].id, response[i].city, response[i].main_photo_url, response[i].city_research)
       }
 
     }, error => this.hotels.length=0);

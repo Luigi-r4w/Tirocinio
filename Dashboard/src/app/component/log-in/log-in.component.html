@@ -1,13 +1,18 @@
 <!-- login.component.html -->
 
 <!-- login.component.html -->
-
+<div class="container">
+  <div class="card-wrapper">
 <div class="card">
   <div class="card-body">
 
 <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="login-form">
+
+
+  <img src="assets/images/users/user.jpg" alt="user" class="rounded-circle" width="100" height="100" />
   
     <div *ngIf="!isLoginMode" class="form-group">
+      <div class="spacer"></div>
       <label for="name">Name</label>
       <div class="spacer2"></div>
       <input type="text" id="name" name="name" [(ngModel)]="name" required>
@@ -53,5 +58,8 @@
   <div id="toast" class="toast"></div>
 
   </div>
-</div>  
+</div> 
+
+</div>
+</div>
   

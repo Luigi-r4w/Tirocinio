@@ -1,17 +1,23 @@
-<h1>Le tue ricerche per {{city}}</h1>
+<div *ngIf="hotels.length!=0">
+  <h1>Le tue ricerche per {{city}}</h1>
+</div> 
  <div *ngFor="let item of hotels">
   <div class="spacer"></div>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{item.getNome()}}</mat-card-title>
-        <mat-card-subtitle>{{item.getCity()}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src={{item.getMain_photo_url()}} >
-      <mat-card-actions>
-        <button class="button" (click)="onInfo(item.getId())">INFO</button>
-      </mat-card-actions>
-    </mat-card>
+  <div class="cornice">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src={{item.getMain_photo_url()}}  alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+          <div class="spacer"></div>
+          <h1>{{item.getNome()}}</h1> 
+          <p>{{item.getCity()}}</p> 
+          <button class="button" (click)="onInfo(item.getId())">INFO</button>
+        </div>
+      </div>
+    </div>
+  </div>
   </div> 
 
 <div *ngIf="hotels.length==0">
