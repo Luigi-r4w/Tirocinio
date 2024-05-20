@@ -55,7 +55,6 @@ public class HotelApi {
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());  
-        System.out.println(response.body());
         Gson gson = new Gson();
         Location[] locations = gson.fromJson(response.body(), Location[].class);
         int i = 0;

@@ -3,7 +3,7 @@ export class HotelDto {
   private nome: string = '';
   private id: string = '';
   private city: string = '';
-  private main_photo_url: string = '';
+  private max_photo_url: string = '';
   private city_research: string = ''; 
     
   getNome(): string {
@@ -31,11 +31,11 @@ export class HotelDto {
   }
 
   getMain_photo_url(): string {
-    return this.main_photo_url;
+    return this.max_photo_url;
   }
     
   setMain_photo_url(value: string) {
-    this.main_photo_url = value;
+    this.max_photo_url = value;
   }
 
   getCity_research(): string {
@@ -50,7 +50,7 @@ export class HotelDto {
     this.nome = nome;
     this.id = id;
     this.city = city;
-    this.main_photo_url = main_photo_url
+    this.max_photo_url = main_photo_url
     this.city_research = city_research
   }
 }

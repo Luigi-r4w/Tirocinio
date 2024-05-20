@@ -64,6 +64,8 @@
     transition: background-color 0.3s; 
     height: 30px; 
     width: 150px; 
+    text-align: center;
+    
   }
 
   .class{
@@ -141,6 +143,19 @@
     background-color: white;
     color: grey;
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
- 
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 20px;
+    padding: 20px;
+    overflow: scroll;
+    max-height: 550px;
+  }
+

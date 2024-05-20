@@ -1,13 +1,27 @@
 
-<div class="card">
+<div class="card"> 
     <div class="hotel-info">
-        <h2>{{ hotel?.getHotelname() }}</h2>
-        <p><strong>Address:</strong> {{hotel?.getAddress()}}, {{hotel?.getCity()}}, {{hotel?.getZip()}}</p>
-        <p><strong>Country:</strong> {{hotel?.getCountry_trans()}}</p>
-        <p><strong>Timezone:</strong> {{hotel?.getTimezone()}}</p>
-        <p><strong>Currency:</strong> {{hotel?.getCurrency_code()}}</p>
-        <p><strong>Website:</strong> <a href="{{ hotel?.getUrl() }}" target="_blank">{{ hotel?.getUrl() }}</a></p>
+      <div class="Name">
+        <h2 class="name">{{ hotel?.getHotelname() }}</h2>
+        <p> {{hotel?.getAddress()}}, {{hotel?.getCity()}}, {{hotel?.getZip()}}</p>
       </div>
+      <div class="info">
+        <div class="spacer1"></div>
+        <div class="text">Country</div>
+        <div class="spacer"></div>
+        <p> {{hotel?.getCountry_trans()}}</p>
+        <div class="spacer1"></div>
+        <div class="text">Timezone</div>
+        <div class="spacer"></div>
+        <p>{{hotel?.getTimezone()}}</p>
+        <div class="spacer1"></div>
+        <div class="text">Currency</div>
+        <div class="spacer"></div>
+        <p>{{hotel?.getCurrency_code()}}</p>
+        <div class="spacer1"></div>
+        <p><a href="{{ hotel?.getUrl() }}" target="_blank">Website</a></p>
+      </div>
+    </div>
 </div>
 
   
