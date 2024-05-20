@@ -39,6 +39,7 @@ public class HotelApi {
             String name = hotelInfoRes.getName();
             String cityy = hotelInfoRes.getCity();
             String main_photo_url = hotelInfoRes.getMain_photo_url();
+
             Hotel hotelResponde = new Hotel(name, id, cityy, main_photo_url, city);
             hotels.add(hotelResponde);
         }
@@ -121,7 +122,7 @@ class HotelRes {
 
         private String hotel_name;
 
-        private String main_photo_url;
+        private String max_photo_url;
 
         private String city;
 
@@ -135,11 +136,11 @@ class HotelRes {
         }
 
         public String getMain_photo_url() {
-            return main_photo_url;
+            return max_photo_url;
         }
 
-        public void setMain_photo_url(String main_photo_url) {
-            this.main_photo_url = main_photo_url;
+        public void setMain_photo_url(String max_photo_url) {
+            this.max_photo_url = max_photo_url;
         }
 
         public String getName() {

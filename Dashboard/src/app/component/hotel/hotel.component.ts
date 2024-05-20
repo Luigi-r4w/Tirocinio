@@ -18,7 +18,7 @@ export class HotelComponent {
   
   ngOnInit(){
 
-    this.hotels= this.hotelSevice.hotelCity(this.hotelSevice.city)
+    this.hotels= this.hotelSevice.hotels
     
   }
 

@@ -29,6 +29,7 @@ export class HotelService {
       for(let i=0; i<response.length; i++){
         this.hotels[i] = new HotelDto(response[i].name, response[i].id, response[i].city, response[i].main_photo_url, response[i].city_research)
       }
+      this.router.navigate(['/component/hotel'])
 
     }, error => this.hotels.length=0);
 

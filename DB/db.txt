@@ -9,8 +9,10 @@ CREATE TABLE IF NOT EXISTS public."user"
 
 CREATE TABLE IF NOT EXISTS public.hotel
 (
-    name character(30) COLLATE pg_catalog."default" NOT NULL,
-    id character(30) COLLATE pg_catalog."default" NOT NULL,
-    city character(30) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT hotel_pkey PRIMARY KEY (name, city)
+    name character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    id character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    city character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    main_photo_url character varying(100000) COLLATE pg_catalog."default",
+    city_research character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT hotel_pkey PRIMARY KEY (name, city_research)
 )

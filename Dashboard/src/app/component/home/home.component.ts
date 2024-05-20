@@ -22,7 +22,7 @@ export class HomeComponent {
     if(this.isLoginMode){
       if(this.city!=""){
         this.hotelService.city = this.city
-        this.router.navigate(['/component/hotel'])
+        this.hotelService.hotelCity(this.city)
         
       }else {
         this.toast("Campo città vuoto")
