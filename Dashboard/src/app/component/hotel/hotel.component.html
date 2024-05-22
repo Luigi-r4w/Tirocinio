@@ -1,5 +1,5 @@
 <div *ngIf="hotels.length!=0">
-  <h1>Le tue ricerche per {{city}}</h1>
+  <h1>Your searches for {{city}}</h1>
 </div> 
 
 <div class="cards-container">
@@ -13,7 +13,7 @@
           <img src={{item.getMain_photo_url()}}  alt="Avatar" style="width:300px;height:300px;">
         </div>
         <div class="flip-card-back">
-          <button class="button" (click)="onInfo(item.getId())">{{item.getNome()}}</button>
+          <button class="button1" (click)="onInfo(item.getId(), item.getMain_photo_url())">{{item.getNome()}}</button>
         </div>
       </div>
     </div>
@@ -25,9 +25,9 @@
   <div class="card">
     <div class="card-body">
     <div class="class">
-      <label class="text" for="cityInput">Ops, la città che stai cercando non è stata trovata</label>
+      <label class="text" for="cityInput">Ops, City not found </label>
       <div class="spacer"></div>
-      <button type="button" class="button1"  (click)="onClick()">Torna alla home</button>
+      <button type="button" class="button"  (click)="onClick()">Back to home</button>
     </div>
     </div>
   </div>  

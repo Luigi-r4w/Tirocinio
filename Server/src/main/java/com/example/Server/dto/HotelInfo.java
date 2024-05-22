@@ -1,5 +1,7 @@
 package com.example.Server.dto;
 
+import java.util.ArrayList;
+
 public class HotelInfo {
     
         private String hotel_name;
@@ -10,6 +12,15 @@ public class HotelInfo {
         private String timezone;
         private String currency_code; //VALUTA
         private String url;
+        private ArrayList<benefits> top_ufi_benefits;
+
+        public ArrayList<benefits> getTop_ufi_benefits() {
+            return top_ufi_benefits;
+        }
+
+        public void setTop_ufi_benefits(ArrayList<benefits> top_ufi_benefits) {
+            this.top_ufi_benefits = top_ufi_benefits;
+        }
 
         public String getHotel_name() {
             return hotel_name;
@@ -73,6 +84,20 @@ public class HotelInfo {
 
         public void setUrl(String url) {
             this.url = url;
+        }
+
+        public class benefits {
+        
+            private String translated_name;
+
+            public String getTranslated_name() {
+                return translated_name;
+            }
+
+            public void setTranslated_name(String translated_name) {
+                this.translated_name = translated_name;
+            }
+            
         }
 
 }

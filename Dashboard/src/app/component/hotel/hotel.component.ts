@@ -26,8 +26,9 @@ export class HotelComponent {
     this.router.navigate(['/home'])
   }
 
-  onInfo(id: string) {
+  onInfo(id: string, foto: string) {
     this.hotelSevice.idHotel = id
+    this.hotelSevice.fotoHotel = foto
     this.hotelSevice.info()
   }
   

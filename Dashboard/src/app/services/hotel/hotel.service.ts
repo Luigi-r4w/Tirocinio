@@ -12,6 +12,7 @@ export class HotelService {
   city: string = ''
   hotels: HotelDto[] = [];
   idHotel: string = '' 
+  fotoHotel: string = ''
   hotelInfo: HotelInfoDto | undefined;
 
   constructor(private service: ServiceService, private router: Router,) { }
@@ -44,9 +45,7 @@ export class HotelService {
 
   info(){
     this.service.info(this.idHotel).subscribe((response: any) => {
-      console.log("response "+response)
-      this.hotelInfo = new HotelInfoDto(response.hotel_name, response.address, response.city, response.zip, response.country_trans, response.timezone, response.currency_code, response.url)
-      console.log("hotel info = "+this.hotelInfo)
+      this.hotelInfo = new HotelInfoDto(response.hotel_name, response.address, response.city, response.zip, response.country_trans, response.timezone, response.currency_code, response.url, response.top_ufi_benefits)
       this.hotelDetails()
     })
   }

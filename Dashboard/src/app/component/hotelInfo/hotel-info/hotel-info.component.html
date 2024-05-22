@@ -1,27 +1,45 @@
-
-<div class="card"> 
+<div class="container">
+  <div class="card" > 
     <div class="hotel-info">
       <div class="Name">
+        <div class="spacer1"></div>
         <h2 class="name">{{ hotel?.getHotelname() }}</h2>
-        <p> {{hotel?.getAddress()}}, {{hotel?.getCity()}}, {{hotel?.getZip()}}</p>
+        <p style="color: black;"> {{hotel?.getAddress()}}, {{hotel?.getCity()}}, {{hotel?.getZip()}}</p>
       </div>
-      <div class="info">
-        <div class="spacer1"></div>
-        <div class="text">Country</div>
-        <div class="spacer"></div>
-        <p> {{hotel?.getCountry_trans()}}</p>
-        <div class="spacer1"></div>
-        <div class="text">Timezone</div>
-        <div class="spacer"></div>
-        <p>{{hotel?.getTimezone()}}</p>
-        <div class="spacer1"></div>
-        <div class="text">Currency</div>
-        <div class="spacer"></div>
-        <p>{{hotel?.getCurrency_code()}}</p>
-        <div class="spacer1"></div>
-        <p><a href="{{ hotel?.getUrl() }}" target="_blank">Website</a></p>
+      <div class="info" style="background-image: url({{this.foto}}); background-position: center; background-repeat: no-repeat;">
+        <div class="info1">
+          <div class="info3">
+            <div class="spacer1"></div>
+            <div class="text">Country</div>
+            <div class="spacer"></div>
+            <p> {{hotel?.getCountry_trans()}}</p>
+            <div class="spacer1"></div>
+            <div class="text">Timezone</div>
+            <div class="spacer"></div>
+            <p>{{hotel?.getTimezone()}}</p>
+            <div class="spacer1"></div>
+            <div class="text">Currency</div>
+            <div class="spacer"></div>
+            <p>{{hotel?.getCurrency_code()}}</p>
+            <div class="spacer1"></div>
+            <p><a href="{{ hotel?.getUrl() }}" target="_blank" style="color: blue; font-size: 25px;">Website</a></p>
+            <div class="spacer1"></div>
+          </div>
+          <div class="info2">
+            <div class="spacer1"></div>
+            <div class="text">Benefits</div>
+            <div class="for" *ngFor="let item of hotel?.top_ufi_benefits">
+              <div class="spacer2"></div>
+              <p>{{item.translated_name}}</p>
+            </div>
+            <div class="spacer1"></div>
+          </div>
+          
+        </div>  
+        
       </div>
     </div>
+  </div>
 </div>
 
   

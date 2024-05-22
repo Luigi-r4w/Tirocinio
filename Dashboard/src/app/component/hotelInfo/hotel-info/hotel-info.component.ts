@@ -16,9 +16,13 @@ export class HotelInfoComponent {
 
   id!: string;
 
+  foto: string = ''
+
   ngOnInit(){
 
+    this.foto = this.hotelSevice.fotoHotel;
     this.hotel = this.hotelSevice.hotelInfo;
+    console.log(this.hotel)
 
   }
 

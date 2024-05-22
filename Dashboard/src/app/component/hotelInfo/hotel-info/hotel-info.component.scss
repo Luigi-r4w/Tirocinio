@@ -1,12 +1,16 @@
 .Name{
-    background-color: white;
+    background-color: rgb(233, 233, 233);
     text-align: center;
     font-size: 20;
+    border-radius: 15px 15px 0 0;
+
 }
 
 .name{
     font-size: 40px;
     color: gold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+
 }
 
 .info{
@@ -18,7 +22,7 @@
 
 .text {
     font-size: 15px;
-    color: gray;
+    color: black;
 }
 
 .spacer {
@@ -29,7 +33,48 @@
     height: 30px; 
 }
 
-.card{
-    background-color: rgba(255, 255, 255, 0.8);
+.spacer2 {
+    height: 10px; 
 }
-  
+
+
+.info1{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    flex-direction: row;
+    display: flex;
+}
+
+.info{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    padding: 20px;
+}
+
+.card{
+    border-radius: 15px;
+    max-width: 600px; 
+    width: 100%;
+    justify-content: center;
+
+}
+
+.hotel-info{
+    border-radius: 15px;
+    width: auto; 
+    height: auto; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info2, .info3 {
+    flex: 1; /* Permetti ai figli di espandersi per riempire lo spazio disponibile */
+    padding: 10px; /* Aggiungi spazio tra i figli */
+}

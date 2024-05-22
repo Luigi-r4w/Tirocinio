@@ -9,8 +9,9 @@ export class HotelInfoDto {
     private timezone : string = '';
     private currency_code: string = '';
     private url : string = '';
+    top_ufi_benefits = [{ translated_name : ''}] 
 
-        constructor(hotel_name: string = '', address: string = '', city: string = '', zip: string ='', country_trans: string='', timezone: string='', currency_code: string='', url: string='') {
+        constructor(hotel_name: string = '', address: string = '', city: string = '', zip: string ='', country_trans: string='', timezone: string='', currency_code: string='', url: string='' , top_ufi_benefits = []) {
             this.hotel_name = hotel_name;
             this.address = address;
             this.city = city;
@@ -19,6 +20,7 @@ export class HotelInfoDto {
             this.timezone = timezone;
             this.currency_code = currency_code;
             this.url = url;
+            this.top_ufi_benefits = top_ufi_benefits
         }
     
         getHotelname() {

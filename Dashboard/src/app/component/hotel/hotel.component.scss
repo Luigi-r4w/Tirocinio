@@ -44,7 +44,7 @@
     background-color: #0056b3;
   }
   
-  button {
+  .button1 {
     background-color: white; 
     color: blue;
     border: none; 
@@ -58,7 +58,7 @@
     line-height: 31px;
   }
 
-  .button1 {
+  .button {
     background-color: blue; 
     color: white;
     border: none; 
@@ -67,7 +67,6 @@
     transition: background-color 0.3s; 
     height: 30px; 
     width: 150px; 
-    text-align: center;
     
   }
 
