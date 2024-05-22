@@ -3,26 +3,26 @@
 <div class="card">
     <div class="card-body">
         
-<div class="class" *ngIf="isLoginMode">
-    <label class="Benvenuto" >Welcome {{nome}}</label>
-    <div class="spacer"></div>
-    <label class="trova" >Discover the perfect hotel for you</label>
-    <div class="spacer"></div>
-    <label class="text" for="cityInput">Where do you want to go?</label>
-    <div class="spacer1"></div>
-    <input type="text" class="inputCity" id="city" name="city" placeholder="Es. Napoli" [(ngModel)]="city" required>
-    <div class="spacer1"></div>
-    <button type="button" (click)="onClick()">Search</button>
-    
-</div>
+        <div class="class" *ngIf="isLoginMode">
+            <label class="Benvenuto" >Welcome {{nome}}</label>
+            <div class="spacer"></div>
+            <label class="trova" >Discover the perfect hotel for you</label>
+            <div class="spacer"></div>
+            <label class="text" for="cityInput">Where do you want to go?</label>
+            <div class="spacer1"></div>
+            <input type="text" class="inputCity" id="city" name="city" placeholder="Es. Napoli" [(ngModel)]="city" required>
+            <div class="spacer1"></div>
+            <button type="button" (click)="onClick()">Search</button>
+        </div> 
 
-<div class="class" *ngIf="!isLoginMode">
-    <label class="trova" >Discover the perfect hotel for you</label>
-    <div class="spacer1"></div>
-    <label class="text" for="cityInput">Please log in first</label>
-    <div class="spacer"></div>
-    <button type="button" (click)="onClick()">Log In</button>
-</div>
+        <div class="class" *ngIf="!isLoginMode">
+            <label class="trova" >Discover the perfect hotel for you</label>
+            <div class="spacer1"></div>
+            <label class="text" for="cityInput">Please log in first</label>
+            <div class="spacer"></div>
+            <button type="button" (click)="onClick()">Log In</button>
+        </div>
+
     </div>
 </div>
 

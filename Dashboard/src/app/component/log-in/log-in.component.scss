@@ -53,8 +53,17 @@
     display: flex;
     justify-content: center;
     width: 500px;
-    
   }
+
+  .card{
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+    transition: box-shadow 0.3s ease;
+ 
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 24px rgba(0, 21, 255, 0.5);
+}
 
   .card-body{
     display: flex;

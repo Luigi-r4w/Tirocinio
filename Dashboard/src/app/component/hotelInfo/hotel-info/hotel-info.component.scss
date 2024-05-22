@@ -59,6 +59,8 @@
     max-width: 600px; 
     width: 100%;
     justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8); 
+
 
 }
 
@@ -75,6 +77,6 @@
   }
 
   .info2, .info3 {
-    flex: 1; /* Permetti ai figli di espandersi per riempire lo spazio disponibile */
-    padding: 10px; /* Aggiungi spazio tra i figli */
+    flex: 1; 
+    padding: 10px; 
 }

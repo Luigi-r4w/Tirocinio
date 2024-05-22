@@ -41,7 +41,7 @@
       <input type="password" id="password" name="password" [(ngModel)]="password" required minlength="6">
       <div *ngIf="loginForm.controls['password'] && loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error-message">
         <span *ngIf="loginForm.controls['password'].errors?.['required']">Password is required</span>
-        <span *ngIf="loginForm.controls['password'].errors?.['minlength']">Invalid password format</span>
+        <span *ngIf="loginForm.controls['password'].errors?.['minlength']">Invalid password</span>
       </div>
     </div>
     
