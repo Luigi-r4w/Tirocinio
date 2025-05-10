@@ -23,8 +23,8 @@ public class HotelApi {
         ArrayList<Hotel> hotels = new ArrayList<Hotel>();
     
         HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("https://booking-com.p.rapidapi.com/v1/hotels/search?checkout_date=2024-09-15&order_by=popularity&filter_by_currency=AED&room_number=1&dest_id="+cityId+"&dest_type=city&adults_number=2&checkin_date=2024-09-14&locale=en-gb&units=metric&include_adjacency=true&children_number=2&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&page_number=0&children_ages=5%2C0"))
-		.header("X-RapidAPI-Key", "293acc30c2msh2762dd407645365p1b0a5djsnded21308c160")
+		.uri(URI.create("https://booking-com.p.rapidapi.com/v1/hotels/search?children_ages=5%2C0&page_number=0&adults_number=2&children_number=2&room_number=1&include_adjacency=true&units=metric&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&checkout_date=2025-01-19&dest_id="+cityId+"&filter_by_currency=AED&dest_type=city&checkin_date=2025-01-18&order_by=popularity&locale=en-gb"))
+		.header("X-RapidAPI-Key", "")
 		.header("X-RapidAPI-Host", "booking-com.p.rapidapi.com")
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
@@ -51,7 +51,7 @@ public class HotelApi {
 
         HttpRequest request = HttpRequest.newBuilder()
 		.uri(URI.create("https://booking-com.p.rapidapi.com/v1/hotels/locations?name="+city+"&locale=en-gb"))
-		.header("X-RapidAPI-Key", "293acc30c2msh2762dd407645365p1b0a5djsnded21308c160")
+		.header("X-RapidAPI-Key", "")
 		.header("X-RapidAPI-Host", "booking-com.p.rapidapi.com")
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
@@ -69,15 +69,16 @@ public class HotelApi {
     }
     
     public HotelInfo info(String id) throws Exception {
+        
         HotelInfo hotelInfo = new HotelInfo();
-
         HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("https://booking-com.p.rapidapi.com/v2/hotels/details?currency=AED&locale=en-gb&checkout_date=2024-09-15&hotel_id="+id+"&checkin_date=2024-09-14"))
-		.header("X-RapidAPI-Key", "293acc30c2msh2762dd407645365p1b0a5djsnded21308c160")
-		.header("X-RapidAPI-Host", "booking-com.p.rapidapi.com")
+		.uri(URI.create("https://booking-com.p.rapidapi.com/v2/hotels/details?locale=en-gb&checkin_date=2025-01-18&hotel_id="+id+"&currency=AED&checkout_date=2025-01-19"))
+		.header("x-rapidapi-key", "")
+		.header("x-rapidapi-host", "booking-com.p.rapidapi.com")
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
         Gson gson = new Gson();
         hotelInfo = gson.fromJson(response.body(), HotelInfo.class);
         return hotelInfo;
